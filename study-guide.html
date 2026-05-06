@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ancient & Medieval History Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #f2e8d0;
+    --parchment-dark: #e0ceaa;
+    --ink: #1c1208;
+    --gold: #c9933a;
+    --gold-light: #e8b860;
+    --rome: #7a1c1c;
+    --byzantine: #1e3d7a;
+    --medieval: #2a4820;
+    --stone: #5c4f3a;
+    --bg: #1a1208;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% 10%, rgba(122,28,28,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 60% at 90% 90%, rgba(30,61,122,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(42,72,32,0.1) 0%, transparent 70%);
+    font-family: 'Crimson Pro', Georgia, serif;
+    min-height: 100vh;
+    padding: 2.5rem 1rem 5rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .header-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    opacity: 0.8;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+    color: var(--parchment);
+    text-shadow: 0 0 40px rgba(201,147,58,0.4), 0 2px 8px rgba(0,0,0,0.6);
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+  }
+
+  .header-sub {
+    font-style: italic;
+    color: var(--parchment-dark);
+    opacity: 0.6;
+    font-size: 1rem;
+    margin-top: 0.6rem;
+  }
+
+  .essay-hint {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: rgba(201,147,58,0.18);
+    border: 1px solid rgba(201,147,58,0.35);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  .ornament {
+    color: var(--gold);
+    opacity: 0.5;
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+    letter-spacing: 0.6rem;
+    display: block;
+  }
+
+  /* PERIOD */
+  .period {
+    max-width: 880px;
+    margin: 0 auto 2rem;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,147,58,0.15);
+    animation: riseUp 0.6s ease both;
+  }
+
+  @keyframes riseUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .period-header {
+    padding: 1.3rem 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+    position: relative;
+    transition: filter 0.2s ease;
+  }
+
+  .period-header:hover { filter: brightness(1.08); }
+
+  .rome      .period-header { background: linear-gradient(135deg, #5c0f0f 0%, #8b1a1a 60%, #6e1515 100%); }
+  .byzantine .period-header { background: linear-gradient(135deg, #101e42 0%, #1e3d7a 60%, #162f62 100%); }
+  .medieval  .period-header { background: linear-gradient(135deg, #142210 0%, #2a4820 60%, #1e3818 100%); }
+
+  .period-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .period-icon { font-size: 2rem; flex-shrink: 0; }
+
+  .period-label {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 2.5vw, 1.45rem);
+    font-weight: 900;
+    color: var(--parchment);
+    letter-spacing: 0.12em;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  }
+
+  .period-dates {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(242,232,208,0.55);
+    margin-top: 0.15rem;
+  }
+
+  .period-arrow {
+    margin-left: auto;
+    color: rgba(242,232,208,0.5);
+    font-size: 1.1rem;
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    flex-shrink: 0;
+  }
+
+  .period.open .period-arrow { transform: rotate(180deg); }
+
+  /* TOPICS WRAP */
+  .topics-wrap {
+    background: var(--parchment);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z' fill='%23c9933a' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .period.open .topics-wrap { max-height: 9999px; }
+
+  /* TOPIC CARDS */
+  .topic { border-bottom: 1px solid rgba(139,96,32,0.18); }
+  .topic:last-child { border-bottom: none; }
+
+  .topic-header {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: background 0.2s;
+    user-select: none;
+  }
+
+  .topic-header:hover { background: rgba(201,147,58,0.1); }
+
+  .topic-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--gold);
+    opacity: 0.7;
+    flex-shrink: 0;
+    width: 1.6rem;
+  }
+
+  .topic-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.78rem, 1.8vw, 0.92rem);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.03em;
+    flex: 1;
+  }
+
+  .topic-chevron {
+    color: var(--stone);
+    opacity: 0.5;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .topic.open .topic-chevron { transform: rotate(90deg); }
+
+  .topic-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .topic.open .topic-body { max-height: 4000px; }
+
+  .topic-inner {
+    padding: 0 2rem 1.5rem 2rem;
+    border-top: 1px solid rgba(139,96,32,0.1);
+    background: rgba(255,255,255,0.25);
+  }
+
+  /* KEY EVENTS BAR */
+  .events-bar {
+    background: linear-gradient(135deg, var(--ink) 0%, #2c1e10 100%);
+    border-radius: 3px;
+    padding: 0.9rem 1.2rem;
+    margin: 1.2rem 0;
+    border-left: 3px solid var(--gold);
+  }
+
+  .events-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    opacity: 0.9;
+  }
+
+  .events-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .event-pill {
+    background: rgba(201,147,58,0.15);
+    border: 1px solid rgba(201,147,58,0.3);
+    color: var(--parchment);
+    font-size: 0.78rem;
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+  }
+
+  .events-descriptions {
+    border-top: 1px solid rgba(201,147,58,0.15);
+    padding-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .event-desc { display: flex; gap: 0.7rem; align-items: baseline; }
+
+  .event-desc-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    color: var(--gold);
+    opacity: 0.85;
+    flex-shrink: 0;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+
+  .event-desc-text {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.88rem;
+    color: rgba(242,232,208,0.82);
+    line-height: 1.5;
+  }
+
+  /* 3-PILLAR GRID */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .pillar {
+    border-radius: 3px;
+    padding: 1rem 1.1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+  }
+
+  .pillar.political { background: rgba(122,28,28,0.08); border: 1px solid rgba(122,28,28,0.15); }
+  .pillar.political::before { background: linear-gradient(90deg, var(--rome), transparent); }
+
+  .pillar.economic { background: rgba(201,147,58,0.08); border: 1px solid rgba(201,147,58,0.2); }
+  .pillar.economic::before { background: linear-gradient(90deg, var(--gold), transparent); }
+
+  .pillar.social { background: rgba(30,61,122,0.08); border: 1px solid rgba(30,61,122,0.15); }
+  .pillar.social::before { background: linear-gradient(90deg, var(--byzantine), transparent); }
+
+  .pillar-icon { font-size: 1.4rem; margin-bottom: 0.4rem; display: block; }
+
+  .pillar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  .pillar.political .pillar-title { color: var(--rome); }
+  .pillar.economic  .pillar-title { color: #8a6020; }
+  .pillar.social    .pillar-title { color: var(--byzantine); }
+
+  .pillar ul {
+    padding-left: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #2c1e10;
+  }
+
+  .pillar ul li { margin-bottom: 0.25rem; }
+
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: rgba(242,232,208,0.25);
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">World History 1 · Study Guide</div>
+  <h1>Rome · Byzantium · Middle Ages</h1>
+  <p class="header-sub">Political · Economic · Social Effects & Features</p>
+  <span class="essay-hint">✦ Each pillar = essay-ready talking points ✦</span>
+  <span class="ornament">⸻ ✦ ⸻</span>
+</header>
+
+<!-- ══════════════════════════════════════
+     ROME
+══════════════════════════════════════ -->
+<div class="period rome open" id="rome">
+  <div class="period-header" onclick="togglePeriod('rome')">
+    <span class="period-icon">🏛️</span>
+    <div>
+      <div class="period-label">ROME</div>
+      <div class="period-dates">509 BCE – 476 CE</div>
+    </div>
+    <span class="period-arrow">▼</span>
+  </div>
+  <div class="topics-wrap">
+
+    <!-- I. Roman Laws -->
+    <div class="topic" id="t-romanlaws">
+      <div class="topic-header" onclick="toggleTopic('t-romanlaws')">
+        <span class="topic-num">I</span>
+        <span class="topic-name">Roman Laws</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Twelve Tables — 450 BCE</span>
+            <span class="event-pill">Plebeians elect Tribunes — 494 BCE</span>
+            <span class="event-pill">Lex Hortensia — 287 BCE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">494 BCE</span><span class="event-desc-text"><strong>Plebeians elect Tribunes:</strong> Plebeians, shut out from all important government positions, formed their own assembly and elected tribunes to protect their rights. This was the opening move in an 84-year struggle to gain real power in the republic.</span></div>
+            <div class="event-desc"><span class="event-desc-date">450 BCE</span><span class="event-desc-text"><strong>Twelve Tables:</strong> Plebeians fought for a written law code to stop patricians from changing the rules on them. They won — laws were carved onto twelve bronze tablets and hung publicly in the forum. For the first time, free citizens had a guaranteed right to protection of the law, no matter who they were.</span></div>
+            <div class="event-desc"><span class="event-desc-date">287 BCE</span><span class="event-desc-text"><strong>Lex Hortensia:</strong> After 84 years of struggle (the "Conflict of the Orders"), plebeian assembly decisions became binding on all Romans, including patricians. The legal playing field was finally leveled — at least on paper.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">⚖️</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Roman law limited patrician power</strong> — writing laws down for the first time meant magistrates could no longer bend unwritten customs; the Twelve Tables gave all free citizens equal protection</li>
+              <li><strong>The Republic balanced power across three groups</strong> — consuls (monarchy-like), the Senate (aristocracy), and citizen assemblies (democracy); Romans argued this balance prevented any one group from becoming tyrannical</li>
+              <li><strong>Checks prevented one-man rule</strong> — consuls could veto each other, served only one year, and had to wait ten years before running again; even in crisis a dictator could only hold power for six months</li>
+              <li><strong>Law became the foundation of Roman identity</strong> — it unified a growing, diverse empire and was later codified by Justinian into a system that still shapes European legal tradition today</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">💰</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>Written property and contract law enabled commerce</strong> — citizens could invest, trade, and accumulate wealth with legal protection; merchants could enforce agreements across the empire</li>
+              <li><strong>Rome's economy rested on agriculture, trade, and conquest</strong> — surplus food, urban growth, territorial expansion, and a common coinage (the denarius) all drove economic growth</li>
+              <li><strong>The elite viewed trade as beneath them</strong> — land ownership was the respected path to wealth; wealthy Romans hired slaves and agents to run businesses on their behalf rather than engage in commerce directly</li>
+              <li><strong>Rome developed early banking</strong> — temples held deposits and gave loans; later the argentarii (a guild of bankers) handled currency exchange and bills of exchange, laying groundwork for medieval finance</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">👥</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>Law codified the class divide</strong> — patricians (wealthy landholders) and plebeians (farmers, merchants, traders) had different rights; the Twelve Tables were a victory for plebeians who spent 84 years fighting for written protections</li>
+              <li><strong>Family law reinforced hierarchy</strong> — the father held absolute authority over wife and children (patria potestas); over time women slowly gained rights to own property and run businesses, but the family remained a patriarchy</li>
+              <li><strong>Religion and law were intertwined</strong> — Romans were polytheistic; the Roman calendar was full of feasts honoring the gods, and religion was a civic duty as much as a personal one</li>
+              <li><strong>Slavery was legally institutionalized</strong> — by 100 BC enslaved persons made up perhaps a third of Rome's population; Roman law treated them as property, yet also defined the conditions under which they could be freed</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- II. Collapse of Western Roman Empire -->
+    <div class="topic" id="t-collapse">
+      <div class="topic-header" onclick="toggleTopic('t-collapse')">
+        <span class="topic-num">II</span>
+        <span class="topic-name">Collapse of the Western Roman Empire</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Diocletian splits empire — 284 CE</span>
+            <span class="event-pill">Constantine moves capital — 330 CE</span>
+            <span class="event-pill">Visigoths sack Rome — 410 CE</span>
+            <span class="event-pill">Attila the Hun — 433–453 CE</span>
+            <span class="event-pill">Romulus Augustulus deposed — 476 CE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">284 CE</span><span class="event-desc-text"><strong>Diocletian splits the empire:</strong> Believing the empire had grown too large and complex for one ruler, Diocletian divided it into a Greek-speaking East and a Latin-speaking West. He doubled the army, set fixed prices to fight inflation, and created an elaborate new imperial ceremony. He kept overall control but the split set the stage for permanent separation.</span></div>
+            <div class="event-desc"><span class="event-desc-date">330 CE</span><span class="event-desc-text"><strong>Constantine moves the capital:</strong> Constantine moved the Roman capital from Rome to the Greek city of Byzantium, renaming it Constantinople. He is also famous for the Edict of Milan (313 CE) which legalized Christianity, and the Council of Nicaea (325 CE), making him the first Christian emperor. The center of Roman power shifted permanently east.</span></div>
+            <div class="event-desc"><span class="event-desc-date">410 CE</span><span class="event-desc-text"><strong>Visigoths sack Rome:</strong> Germanic peoples pushed into Roman territory fleeing the Huns. The Western Empire couldn't field an army to stop them. In 410, hordes of Germans overran Rome itself and plundered it for three days — the first time Rome had fallen to an enemy in 800 years. The psychological shock was enormous.</span></div>
+            <div class="event-desc"><span class="event-desc-date">433–453 CE</span><span class="event-desc-text"><strong>Attila the Hun:</strong> United under the chieftain Attila, the Huns swept across the empire with 100,000 soldiers, plundering 70 cities in the East and then turning west. They failed to scale Constantinople's walls. In 452 they advanced on Rome but famine and disease stopped them. After Attila's death in 453 the Huns ceased to be a threat, but the Germanic invasions continued.</span></div>
+            <div class="event-desc"><span class="event-desc-date">476 CE</span><span class="event-desc-text"><strong>Romulus Augustulus deposed:</strong> The Germanic chieftain Odoacer deposed the last Western emperor — a 14-year-old boy named Romulus Augustulus — and sent the imperial regalia to Constantinople. After this, no emperor even pretended to rule Rome and its western provinces. The Eastern Empire (Byzantine) survived and flourished for another 1,000 years.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">🗡️</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Political instability was a root cause</strong> — oppressive government, loss of popular support, corruption, and no clear system of succession meant the empire was in constant internal crisis long before the barbarians arrived</li>
+              <li><strong>The army became the real political power</strong> — soldiers gave loyalty to their generals rather than Rome; generals fought each other for the throne, making stable governance impossible</li>
+              <li><strong>Germanic mercenaries (foederati) hollowed out the military</strong> — Rome couldn't recruit enough citizens so hired foreign soldiers who felt no loyalty to the empire; the army defending Rome was no longer Roman</li>
+              <li><strong>After 476 CE, Roman political power in the West simply ceased</strong> — the Church filled the vacuum, becoming the dominant institution of post-Roman Europe and setting up the medieval political world</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">📉</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>Currency debasement destroyed the economy</strong> — emperors reduced silver in coins to fund the army; this caused rampant inflation and a collapse in trust in money, making trade far harder</li>
+              <li><strong>Heavy taxation crushed the population</strong> — taxes were raised to support the army and bureaucracy; farmers were bound to wealthy landowners; unemployment spread; a welfare system drained the treasury</li>
+              <li><strong>Trade networks collapsed</strong> — as roads became unsafe and provinces were lost, the Mediterranean economy fragmented; overworked soil lost fertility, food shortages spread, and population declined</li>
+              <li><strong>The loss of wealthy provinces was irreversible</strong> — losing Britain, Gaul, Spain, and North Africa meant losing the tax revenue and agricultural surplus the empire depended on to fund its army</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">🌆</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>Patriotism and civic identity collapsed</strong> — Romans who once willingly died for the republic became indifferent to the empire's fate; the social glue that held Rome together dissolved</li>
+              <li><strong>War and disease caused population decline</strong> — cities emptied; literacy, public education, and civic culture fell sharply without state funding to maintain them</li>
+              <li><strong>The Church replaced Rome as the organizing social institution</strong> — with no Roman government to provide order, the Church stepped in to fill the vacuum, becoming the central force in medieval European society</li>
+              <li><strong>Mass migration permanently reshaped Europe</strong> — Germanic peoples pushed into Roman territory by the Huns reshaped the ethnic, cultural, and linguistic makeup of Western Europe, creating the foundations of modern European nations</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- III. Republic to Empire -->
+    <div class="topic" id="t-republic">
+      <div class="topic-header" onclick="toggleTopic('t-republic')">
+        <span class="topic-num">III</span>
+        <span class="topic-name">Change from a Republic to Empire</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">First Triumvirate — 60 BCE</span>
+            <span class="event-pill">Caesar crosses Rubicon — 49 BCE</span>
+            <span class="event-pill">Battle of Actium — 31 BCE</span>
+            <span class="event-pill">Augustus becomes Princeps — 27 BCE</span>
+            <span class="event-pill">Pax Romana — 27 BCE–180 CE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">60 BCE</span><span class="event-desc-text"><strong>First Triumvirate:</strong> Julius Caesar joined forces with the wealthy Crassus and the popular general Pompey. With their help, Caesar was elected consul in 59 BCE. For the next ten years these three men dominated Rome. The alliance ended in jealousy and violence when Crassus died and Pompey and Caesar turned on each other.</span></div>
+            <div class="event-desc"><span class="event-desc-date">49 BCE</span><span class="event-desc-text"><strong>Caesar crosses the Rubicon:</strong> The Senate ordered Caesar to disband his legions and return home. He defied the order and crossed the Rubicon River — the legal boundary he was forbidden to cross with an army. This was an act of war against the state. He marched swiftly toward Rome; Pompey fled. Caesar's forces defeated Pompey's armies across the empire.</span></div>
+            <div class="event-desc"><span class="event-desc-date">31 BCE</span><span class="event-desc-text"><strong>Battle of Actium:</strong> After Caesar's assassination, civil war destroyed what was left of the Republic. Caesar's grandnephew Octavian joined with Mark Antony and Lepidus as the Second Triumvirate. Their alliance collapsed; Octavian defeated Antony and Cleopatra at the naval Battle of Actium. Antony and Cleopatra committed suicide. Octavian was now sole ruler of Rome.</span></div>
+            <div class="event-desc"><span class="event-desc-date">27 BCE</span><span class="event-desc-text"><strong>Augustus becomes Princeps:</strong> Octavian returned power to the Senate — they gave it back immediately along with the title "Augustus" (exalted one). He was also made "Princeps" (first citizen), "Imperator" (origin of emperor), "Pontifex Maximus" (chief religious leader), and a tribune. He maintained the illusion of being "first among equals" while in reality ruling with almost no checks at all.</span></div>
+            <div class="event-desc"><span class="event-desc-date">27 BCE–180 CE</span><span class="event-desc-text"><strong>Pax Romana:</strong> A long period of relative peace and prosperity established by Augustus and enjoyed by around 60 million people. Peace was maintained in all lands Rome controlled; Rome respected local customs, provided a system of laws, promoted trade, and offered Roman citizenship. It lasted nearly 200 years and was Rome's golden age.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">🏺</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>The Republic fell from within before it fell to outsiders</strong> — social inequality, political corruption, and the rise of military strongmen who recruited armies loyal to them personally (not to Rome) made the old system unworkable</li>
+              <li><strong>Augustus preserved the illusion of the Republic while ending it</strong> — by keeping titles like "Princeps" (first citizen) instead of king, he made the transition to one-man rule feel legal; future emperors used the same trick</li>
+              <li><strong>The civil service replaced the Senate as real government</strong> — Augustus paid workers (including plebeians and former slaves) to manage grain supply, tax collection, and the postal system; patricians lost their monopoly on power</li>
+              <li><strong>Provincial governance centralized</strong> — elected governors were replaced by imperial appointees who reported to the emperor; the empire became more unified but less democratic</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">🌾</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>The Pax Romana was an economic golden age</strong> — nearly 200 years of relative peace meant trade boomed; Rome's vast network of roads, ports, and a common currency (the denarius) connected the entire Mediterranean world</li>
+              <li><strong>Agriculture was the backbone</strong> — about 90% of Romans farmed; the empire was fed through a complex system of local production and long-distance trade stretching from Spain to China</li>
+              <li><strong>Wealth became increasingly unequal</strong> — large slave-worked estates (latifundia) displaced small farmers; the gap between wealthy landowners and the urban poor widened dramatically under the empire</li>
+              <li><strong>"Bread and circuses" was economic policy</strong> — the state funded free grain distribution and 150 public holidays a year to keep the masses fed and distracted; it worked, but it was expensive</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">🎭</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The emperor became a religious figure</strong> — temples, statues, and emperor worship spread across the empire as a way of unifying enormously diverse populations under one identity</li>
+              <li><strong>Public entertainment replaced civic participation</strong> — the Colosseum held 50,000 people; gladiator fights, animal hunts, and races replaced the political engagement that had defined the Republic era</li>
+              <li><strong>Rome was deeply cosmopolitan</strong> — peoples from Africa, Asia, and Europe all lived as Romans; citizenship was extended to more and more conquered peoples, making "Roman" a cultural identity rather than an ethnic one</li>
+              <li><strong>Christianity began to spread during the Pax Romana</strong> — the peace, common languages (Greek and Latin), and Roman roads that made trade easier also made it easier for new ideas — including Christianity — to spread across the empire</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- IV. Julius Caesar -->
+    <div class="topic" id="t-caesar">
+      <div class="topic-header" onclick="toggleTopic('t-caesar')">
+        <span class="topic-num">IV</span>
+        <span class="topic-name">Julius Caesar: Reforms and Assassination</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Consul elected — 59 BCE</span>
+            <span class="event-pill">Gallic Wars — 58–50 BCE</span>
+            <span class="event-pill">Crosses Rubicon — 49 BCE</span>
+            <span class="event-pill">Named dictator — 46 BCE</span>
+            <span class="event-pill">Ides of March — March 15, 44 BCE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">58–50 BCE</span><span class="event-desc-text"><strong>Gallic Wars:</strong> Caesar appointed himself governor of Gaul and led his legions in a grueling but successful campaign to conquer all of it. He shared fully in the hardships of war, which won his soldiers' devotion. His reports of success made him enormously popular with the people of Rome — and terrifying to his political rival Pompey.</span></div>
+            <div class="event-desc"><span class="event-desc-date">46 BCE</span><span class="event-desc-text"><strong>Named Dictator:</strong> After defeating Pompey's armies across the empire, Caesar returned to Rome with the support of the army and the masses. The Senate appointed him dictator in 46 BCE, then dictator for life (Dictator Perpetuo) in 44 BCE — directly threatening the Republic's constitutional order. He started significant reforms immediately.</span></div>
+            <div class="event-desc"><span class="event-desc-date">March 15, 44 BCE</span><span class="event-desc-text"><strong>Ides of March — Assassination:</strong> Many senators feared losing their power; others considered Caesar a tyrant. A group of important senators led by Marcus Brutus and Gaius Cassius plotted his assassination. On March 15, 44 BCE, they stabbed him 23 times in the Senate chamber. His last words were reportedly "Et tu, Brute?" — "You, too, Brutus?" The killing meant to save the Republic instead triggered the civil wars that destroyed it.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">👑</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Caesar broke the Republic's constitutional limits</strong> — naming himself Dictator Perpetuo (permanent dictator) was an open declaration that he intended to rule for life, which the Senate saw as the death of Republican government</li>
+              <li><strong>His assassination triggered the opposite of what was intended</strong> — the senators who killed him wanted to save the Republic; instead they started the civil wars that destroyed it and brought Augustus to power</li>
+              <li><strong>He expanded the Senate to include provincial elites</strong> — adding supporters from Italy and other regions diluted old patrician power and made the institution more representative, but also more loyal to him personally</li>
+              <li><strong>His name became a permanent political title</strong> — every Roman emperor after him was called "Caesar," showing how completely his personality had fused with the idea of supreme rule</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">🏗️</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>The Gallic Wars funded his political rise</strong> — eight years of conquest brought enormous wealth in slaves and gold; this war chest paid for both his political career and his popular reforms in Rome</li>
+              <li><strong>He invested in public works to create jobs</strong> — the Forum of Caesar and other building projects put the urban poor to work, addressing the unemployment crisis that had destabilized the Republic</li>
+              <li><strong>He redistributed land through colonies</strong> — settling veterans and landless citizens in new colonies relieved pressure on overcrowded Rome and gave people who had nothing a stake in the system</li>
+              <li><strong>Debt relief angered the wealthy</strong> — his measures to reduce the burden on the poor were popular with the masses but alienated the wealthy creditors in the Senate, adding to the list of reasons they wanted him gone</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">📅</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The Julian Calendar was a lasting reform that affected all of society</strong> — Rome's calendar had drifted months out of sync with the seasons; Caesar fixed it with a 365-day solar year and leap day, a system used across Europe until 1582</li>
+              <li><strong>He demonstrated that politics could be populist</strong> — his appeal to the urban poor and soldiers over the heads of the Senate showed a new style of Roman politics that Augustus and later emperors would copy</li>
+              <li><strong>He extended citizenship to provincials</strong> — broadening Roman identity beyond Italy made "Roman" less about where you were born and more about what laws you lived under</li>
+              <li><strong>His murder shocked Roman society to its core</strong> — the assassination showed that even the most powerful man in the world was not safe; it proved that the Republic's institutions had completely broken down</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /rome -->
+
+
+<!-- ══════════════════════════════════════
+     BYZANTINE EMPIRE
+══════════════════════════════════════ -->
+<div class="period byzantine open" id="byzantine">
+  <div class="period-header" onclick="togglePeriod('byzantine')">
+    <span class="period-icon">⚜️</span>
+    <div>
+      <div class="period-label">BYZANTINE EMPIRE</div>
+      <div class="period-dates">330 CE – 1453 CE</div>
+    </div>
+    <span class="period-arrow">▼</span>
+  </div>
+  <div class="topics-wrap">
+
+    <!-- I. Justinian & Theodora -->
+    <div class="topic" id="t-justinian">
+      <div class="topic-header" onclick="toggleTopic('t-justinian')">
+        <span class="topic-num">I</span>
+        <span class="topic-name">Reforms of Justinian and Theodora (Justinian Code)</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Justinian becomes emperor — 527 CE</span>
+            <span class="event-pill">Justinian Code published — 529–534 CE</span>
+            <span class="event-pill">Nika Riots — 532 CE</span>
+            <span class="event-pill">Hagia Sophia built — 537 CE</span>
+            <span class="event-pill">Reconquest of N. Africa & Italy — 533–554 CE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">527 CE</span><span class="event-desc-text"><strong>Justinian Becomes Emperor:</strong> Justinian was raised poor but his uncle was rich and later adopted him. He rarely gave up on a task until it was completed and listened to all his subjects — rich or poor. He fell in love with Theodora, who was believed to be an actress or prostitute; he had laws rewritten so he could marry her. As emperor, he attempted to restore Rome's lost territory and glory.</span></div>
+            <div class="event-desc"><span class="event-desc-date">529–534 CE</span><span class="event-desc-text"><strong>Justinian Code:</strong> Justinian ordered legal experts to comb through 400 years of Roman law and organize it into a single unified system. The result had four parts: the Code (about 5,000 useful Roman laws), the Digest (summaries of legal opinions), the Institutes (a law textbook for students), and the Novellae (new laws passed after 534). It regulated marriage, property, slavery, inheritance, and criminal justice, and served the empire for 900 years.</span></div>
+            <div class="event-desc"><span class="event-desc-date">532 CE</span><span class="event-desc-text"><strong>Nika Riots:</strong> Rival chariot racing fan factions (Blues and Greens) united and nearly overthrew Justinian in five days of street fighting. Justinian was preparing to flee when Theodora told him: "Purple is the noblest winding-sheet" — meaning she'd rather die as empress than live as a fugitive. Shamed, he stayed. General Belisarius locked the rioters in the Hippodrome and killed about 30,000 of them.</span></div>
+            <div class="event-desc"><span class="event-desc-date">537 CE</span><span class="event-desc-text"><strong>Hagia Sophia:</strong> Justinian's greatest building — a massive domed church called Hagia Sophia ("Holy Wisdom") built in just five years. It became one of the most splendid churches in the Christian world. Justinian viewed churches as the most visible sign of the connection between church and state in his empire. He also built walls, baths, aqueducts, law courts, schools, and hospitals.</span></div>
+            <div class="event-desc"><span class="event-desc-date">533–554 CE</span><span class="event-desc-text"><strong>Reconquests:</strong> Justinian's general Belisarius recovered North Africa from the Vandals and then seized Italy from the Ostrogoths. Justinian now ruled almost all the territory Rome had ever ruled and could honestly call himself a new Caesar. But the wars were enormously expensive, leaving the empire in financial crisis that forced heavy taxation on citizens for decades after.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">📜</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Justinian ruled with absolute power over both church and state</strong> — he appointed and dismissed bishops at will, making him the supreme authority in every sphere of Byzantine life; this was a fundamental feature of how the Eastern Empire operated</li>
+              <li><strong>The Justinian Code centralized and stabilized political power</strong> — a unified legal system removed the ambiguities regional governors had exploited; the code regulated everything from marriage to criminal justice and served the empire for 900 years</li>
+              <li><strong>Theodora was a genuine political co-ruler</strong> — she dealt with foreign leaders, passed laws, and during the Nika Riots convinced Justinian not to flee when he was ready to abandon the throne; without her, his reign likely ends in 532</li>
+              <li><strong>Byzantine politics were brutal</strong> — of 88 Byzantine emperors, 29 died violently and 13 abandoned the throne for monasteries; Justinian's reconquests were impressive but left the empire financially drained and militarily overstretched</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">🕌</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>Constantinople's location made it the wealthiest city in the world</strong> — sitting at the crossroads of Europe, Asia, and Africa, it controlled the most lucrative trade routes of the era; this wealth funded Justinian's ambitions</li>
+              <li><strong>The wars of reconquest were economically ruinous</strong> — regaining North Africa and Italy cost enormous sums; Justinian's successors were forced to heavily tax citizens just to keep the empire functioning, creating long-term fiscal weakness</li>
+              <li><strong>Tax pressure directly caused the Nika Riots</strong> — John of Cappadocia introduced 26 new taxes that hit even wealthy citizens; the resulting anger combined with chariot racing rivalries to nearly bring down the entire government</li>
+              <li><strong>Justinian's building program stimulated but also strained the economy</strong> — the Hagia Sophia, city walls, baths, hospitals, and law courts were impressive achievements, but building them cost money the empire was borrowing against future tax revenue</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">✝️</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>Theodora advanced women's rights</strong> — she worked to expand legal protections for women and encouraged the building of churches; the Justinian Code gave women and slaves more protections than earlier Roman law had</li>
+              <li><strong>Education was highly valued</strong> — Byzantine families sent children to schools or hired private tutors; basic courses covered Greek and Latin grammar, philosophy, and rhetoric; students memorized Homer and studied geometry from Euclid</li>
+              <li><strong>The Nika Riots showed how deeply sport and politics were intertwined</strong> — the Blues and Greens fan factions were so passionate they nearly overthrew the government; killing 30,000 of them ended chariot racing as a mass sport in Constantinople</li>
+              <li><strong>Byzantine scholars preserved the ancient world</strong> — they maintained the great works of Greece and Rome through a culture that valued classical learning; when Constantinople fell in 1453, fleeing scholars carried this knowledge to Italy and helped spark the Renaissance</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- II. Eastern vs Western -->
+    <div class="topic" id="t-eastwest">
+      <div class="topic-header" onclick="toggleTopic('t-eastwest')">
+        <span class="topic-num">II</span>
+        <span class="topic-name">Eastern vs. Western Roman Empire</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Diocletian divides empire — 284 CE</span>
+            <span class="event-pill">Constantinople founded — 330 CE</span>
+            <span class="event-pill">Permanent division — 395 CE</span>
+            <span class="event-pill">Western Empire falls — 476 CE</span>
+            <span class="event-pill">Great Schism — 1054 CE</span>
+            <span class="event-pill">Constantinople falls — 1453 CE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">284 CE</span><span class="event-desc-text"><strong>Diocletian divides the empire:</strong> Diocletian decided the huge empire could only be ruled effectively by splitting it. He took the wealthier Greek-speaking East for himself and appointed a co-ruler for the Latin-speaking West. His half had most of the great cities and trade centers. This practical administrative split became the blueprint for permanent separation.</span></div>
+            <div class="event-desc"><span class="event-desc-date">330 CE</span><span class="event-desc-text"><strong>Constantinople founded:</strong> Constantine moved the capital from Rome to Byzantium, renaming it Constantinople. Located on the Bosporus strait connecting the Black Sea and the Mediterranean, it was protected on three sides by water. This made it nearly impregnable — and that defensibility is why the Eastern Empire survived for a thousand years after the West fell.</span></div>
+            <div class="event-desc"><span class="event-desc-date">395 CE</span><span class="event-desc-text"><strong>Permanent division:</strong> When Emperor Theodosius I died he split the empire between his two sons — the West to Honorius, the East to Arcadius. This was meant to be an administrative division but became permanent. The West, poorer and more exposed to invasion, unraveled within decades. The richer, better-defended East continued for over 1,000 more years.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1054 CE</span><span class="event-desc-text"><strong>Great Schism:</strong> Tensions between Eastern and Western churches had been growing for centuries over theology, language, and authority. In 1054, the pope and the patriarch of Constantinople excommunicated each other in a dispute over religious doctrine. Christianity officially split into the Roman Catholic Church in the West and the Eastern Orthodox Church in the East — a division that still exists today.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1453 CE</span><span class="event-desc-text"><strong>Constantinople falls:</strong> Ottoman Sultan Mehmed II stormed Constantinople with a massive army. The last Byzantine emperor, Constantine XI, died fighting. The Byzantine Empire — the only organized state west of China to survive continuously from ancient times to the modern era — finally ended. Greek scholars who fled to Italy brought classical manuscripts with them, helping spark the Italian Renaissance.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">🗺️</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Geography explains why the East survived and the West did not</strong> — Constantinople on a strait with water on three sides and massive walls on the fourth was nearly impregnable; the West had no comparable defensive advantage and weaker political leadership</li>
+              <li><strong>The East maintained stronger central administration</strong> — provinces were reorganized into military districts (themes) each run by a general reporting to the emperor; this more efficient structure meant the East could respond to crises faster than the chaotic West</li>
+              <li><strong>The Great Schism of 1054 was a permanent political split disguised as a religious one</strong> — the pope and the patriarch of Constantinople excommunicating each other formalized the division of Christendom into two competing power centers that still exist today</li>
+              <li><strong>The fall of Constantinople in 1453 ended the longest-surviving state in history</strong> — the Byzantine Empire was the only organized state west of China to survive continuously from ancient times to the modern era; its end marked the close of the Middle Ages</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">⚓</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>Control of trade routes was the East's greatest economic advantage</strong> — Constantinople sat between Europe and Asia, collecting wealth from every merchant passing through; the West lost its richest provinces to invaders and could no longer fund its army</li>
+              <li><strong>The East stayed monetized while the West regressed to barter</strong> — after 476 CE Western Europe largely abandoned money in favor of goods exchange; the East maintained a sophisticated money economy and the gold solidus became the region's reserve currency</li>
+              <li><strong>The East's wealthier provinces funded a stronger military</strong> — Egypt, Syria, and Anatolia generated huge tax revenues that the Eastern emperors used to maintain armies and buy off enemies through diplomacy and bribes</li>
+              <li><strong>Byzantine scholars fleeing in 1453 triggered the Renaissance</strong> — when Constantinople fell, Greek scholars brought ancient manuscripts to Italy; European intellectuals used this knowledge to rediscover classical learning, sparking one of history's great cultural and economic transformations</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">🌍</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>Eastern and Western identities diverged completely</strong> — the East became Greek-speaking and Orthodox Christian; the West became Latin-speaking and Roman Catholic; two civilizations that had been one now developed in separate directions for a thousand years</li>
+              <li><strong>Constantinople was a center of learning when the West had lost most of it</strong> — Byzantine schools taught philosophy, medicine, geometry, and classical literature; they preserved the intellectual heritage of Greece and Rome through the centuries Europe called the "Dark Ages"</li>
+              <li><strong>The Great Schism created two lasting versions of Christianity</strong> — Roman Catholic (services in Latin, pope supreme, priests cannot marry) vs. Eastern Orthodox (services in Greek or local languages, patriarch leads as a group, priests may marry); these differences still define the divide between Western and Eastern European culture</li>
+              <li><strong>Byzantine missionaries shaped Eastern European identity</strong> — Saints Cyril and Methodius created the Cyrillic alphabet to give Slavic peoples written language; many Slavic languages including Russian are still written in Cyrillic today</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /byzantine -->
+
+
+<!-- ══════════════════════════════════════
+     MIDDLE AGES
+══════════════════════════════════════ -->
+<div class="period medieval open" id="medieval">
+  <div class="period-header" onclick="togglePeriod('medieval')">
+    <span class="period-icon">🏰</span>
+    <div>
+      <div class="period-label">MIDDLE AGES</div>
+      <div class="period-dates">476 CE – 1500 CE</div>
+    </div>
+    <span class="period-arrow">▼</span>
+  </div>
+  <div class="topics-wrap">
+
+    <!-- I. Black Death -->
+    <div class="topic" id="t-blackdeath">
+      <div class="topic-header" onclick="toggleTopic('t-blackdeath')">
+        <span class="topic-num">I</span>
+        <span class="topic-name">The Black Death</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">China epidemic — 1333</span>
+            <span class="event-pill">Arrives in Sicily — 1347</span>
+            <span class="event-pill">Reaches England — 1348</span>
+            <span class="event-pill">Jewish pogroms — 1348–1351</span>
+            <span class="event-pill">~30–40% of England dead — by 1350</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">1333</span><span class="event-desc-text"><strong>Origins in China:</strong> In 1333, the province of Hopei in northeastern China experienced an epidemic that destroyed about two-thirds of its population, killing around five million people. Being one of the busiest trading nations, the disease spread westward along trade routes toward Europe — the Silk Road and merchant shipping carried it across the known world.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1347</span><span class="event-desc-text"><strong>Arrives in Sicily:</strong> In 1345–46, a Mongol army besieged the Black Sea port of Kaffa; a year later, Italian merchants returned to Italy unknowingly carrying the plague. By 1347 a fleet of Genoese ships arrived in Messina, Sicily, with sailors already dead or dying covered in black pustules. The disease swept through Italy and then followed trade routes to Spain, France, Germany, and England.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1348</span><span class="event-desc-text"><strong>Reaches England through Bristol:</strong> The plague arrived in England through Bristol, one of the busiest ports in Europe. By the time it reached London (population ~70,000), poor hygiene and cramped living conditions meant it spread rapidly. The church recorded about 20,000 deaths in London between 1348 and 1350. Princess Joan Plantagenet, daughter of Edward III, died of plague in September 1348 — showing anyone could get it.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1348–1351</span><span class="event-desc-text"><strong>Jewish pogroms:</strong> Desperate to explain the catastrophe, many Europeans blamed Jewish communities for poisoning wells. In 1349, about 3,000 Jews were killed in Erfurt, Germany by Christian mobs; by the following year, almost no Jews survived in Germany. The scapegoating showed how completely the plague destroyed normal social rationality — people needed someone to blame and Jews became the target.</span></div>
+            <div class="event-desc"><span class="event-desc-date">By 1350</span><span class="event-desc-text"><strong>Scale of death:</strong> For two years the plague killed 30 to 40% of the English population — over two and a half million people dead and nearly all of Britain infected. Across Europe it killed almost 25 million people (about one third of the population) and millions more in Asia and Africa. The plague returned every few years after, though never as severely as the first outbreak.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">👑</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>The Church lost its political authority</strong> — it could not explain or stop the plague; when prayers failed to save people, kings stopped listening to popes and the Church's hold over political life began to crack permanently</li>
+              <li><strong>Governments were forced to respond in new ways</strong> — Edward III of England ordered cleaning of streets and kept raising wages as labor became scarce; rulers discovered that economic conditions, not just divine will, shaped society</li>
+              <li><strong>Feudalism's political structure began to collapse</strong> — entire villages disappeared, weakening the manorial system that feudal political power depended on; lords who lost their serfs lost their power base</li>
+              <li><strong>The plague empowered the lower classes politically</strong> — surviving serfs discovered they had leverage for the first time; demands for better conditions grew, fueling later revolts like England's Peasants' Revolt of 1381</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">💀</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>The chain reaction of the plague destroyed the feudal economy</strong> — population decreases → fewer workers → workers demand better wages → serfs leave manors → prices rise → decline of the manorial system; the entire economic structure of the Middle Ages unraveled</li>
+              <li><strong>For the first time, surviving workers could negotiate</strong> — so many died that workers had a choice of jobs; people who had nothing inherited homes, money, and trades overnight when family members perished</li>
+              <li><strong>Trade collapsed completely during the outbreak</strong> — town populations fell sharply; no one went to public spaces, markets, or churches; prices rose as goods became scarce; the economy was thrown completely upside down</li>
+              <li><strong>The long-term effect was the end of serfdom</strong> — once serfs realised they could leave manors and find paying work in towns, the economic foundation of feudalism was gone; lords could not force people back without labor becoming free</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">⛪</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The plague spread through a mechanism no one understood</strong> — the Oriental Rat Flea drank rat blood carrying the bacteria, which multiplied in its gut until it bit humans; medieval people thought bodies were being poisoned and tried useless cures (frog bellies on sores, figs and onions) rather than addressing rats and fleas</li>
+              <li><strong>Jewish communities were scapegoated and massacred</strong> — unable to explain the catastrophe, Christian mobs blamed Jews for poisoning wells; 3,000 Jews were killed in Erfurt, Germany in 1349; by 1350 almost no Jews survived in Germany</li>
+              <li><strong>Christians and Muslims reacted differently</strong> — Christians often saw the plague as punishment for sin; Muslims saw it as a test of faith; both lost millions regardless of their beliefs, undermining the idea that religious devotion offered protection</li>
+              <li><strong>The psychological trauma reshaped European culture</strong> — people made art about death (the "Dance of Death"); social bonds broke down even within families; the experience of watching a third of Europe die in four years permanently changed how people thought about life, death, and God</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- II. Charlemagne -->
+    <div class="topic" id="t-charlemagne">
+      <div class="topic-header" onclick="toggleTopic('t-charlemagne')">
+        <span class="topic-num">II</span>
+        <span class="topic-name">Charlemagne</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">King of Franks — 768 CE</span>
+            <span class="event-pill">Battle of Tours — 732 CE (his grandfather)</span>
+            <span class="event-pill">Crowned Holy Roman Emperor — 800 CE</span>
+            <span class="event-pill">Carolingian Renaissance — ~780–820 CE</span>
+            <span class="event-pill">Treaty of Verdun — 843 CE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">732 CE</span><span class="event-desc-text"><strong>Battle of Tours (his grandfather Charles Martel):</strong> Charlemagne's grandfather Charles Martel defeated Muslim raiders from Spain at the Battle of Tours — a hugely significant victory. If the Muslims had won, western Europe might have become part of the Muslim Empire. Charles Martel became a Christian hero, and his victory set the stage for the Frankish dynasty that Charlemagne would inherit.</span></div>
+            <div class="event-desc"><span class="event-desc-date">768 CE</span><span class="event-desc-text"><strong>King of the Franks:</strong> Charlemagne inherited the Frankish kingdom with his brother Carloman. After Carloman died in 771, Charlemagne took sole rule. He was an imposing figure — six feet four inches tall — and spent the next decades conquering enemies on all sides: Muslims in Spain, Germanic tribes, and others. He reunited western Europe for the first time since the Roman Empire.</span></div>
+            <div class="event-desc"><span class="event-desc-date">800 CE</span><span class="event-desc-text"><strong>Crowned Holy Roman Emperor:</strong> In 800, Charlemagne traveled to Rome to crush a mob that had attacked the pope. On Christmas Day, Pope Leo III crowned him emperor in St. Peter's Basilica. The coronation was historic — a pope had claimed the political right to crown a European king as "Roman Emperor," joining Germanic power, the Church, and the heritage of Rome in one moment.</span></div>
+            <div class="event-desc"><span class="event-desc-date">~780–820 CE</span><span class="event-desc-text"><strong>Carolingian Renaissance:</strong> Charlemagne encouraged learning as one of his greatest accomplishments — he surrounded himself with scholars from England, Germany, Italy, and Spain. For his children and other court members he opened a palace school. He also ordered monasteries to open schools to train future monks and priests. He standardized weights, measures, and coinage across his empire.</span></div>
+            <div class="event-desc"><span class="event-desc-date">843 CE</span><span class="event-desc-text"><strong>Treaty of Verdun:</strong> Charlemagne died in 814, leaving his empire to his son Louis the Pious, who was devoutly religious but an ineffective ruler. Louis's three sons — Lothair, Charles the Bald, and Louis the German — fought each other for control. In 843 they signed the Treaty of Verdun, dividing the empire into three kingdoms. Carolingian kings lost power and central authority broke down, directly leading to feudalism.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">⚔️</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Charlemagne reunited Western Europe for the first time since Rome</strong> — by 800 CE his empire was larger than the Byzantine Empire; he had become the most powerful king in Western Europe through decades of military campaigns on all sides</li>
+              <li><strong>His coronation set a dangerous political precedent</strong> — when Pope Leo III crowned him emperor, a pope had claimed the right to grant (and therefore withdraw) the title of "Roman Emperor" from a secular king; this tension between Church and State defined medieval politics for centuries after</li>
+              <li><strong>He built a functioning administration where none existed</strong> — he sent royal agents (missi dominici) to ensure powerful landholders governed justly, and regularly visited every part of his kingdom himself to maintain control</li>
+              <li><strong>His empire's collapse directly created feudalism</strong> — after the Treaty of Verdun divided his empire in 843, central authority broke down completely; without a strong ruler to provide order and protection, local lords filled the vacuum and the feudal system emerged</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">🌾</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>He standardized commerce across the empire</strong> — common weights, measures, and coinage reduced friction in trade; for the first time, merchants across a vast territory were working in the same system</li>
+              <li><strong>Three-field crop rotation spread under his reign</strong> — this agricultural innovation dramatically increased food production, supported population growth, and gave the Carolingian Empire its economic foundation</li>
+              <li><strong>His power came from his land</strong> — Charlemagne kept a close watch on his vast royal estates, understanding that land was the source of all Carolingian wealth; he was a hands-on economic manager as well as a military leader</li>
+              <li><strong>Trade with Muslim Spain and Byzantium brought wealth in</strong> — luxury goods flowed into Frankish territories, making his court at Aachen a cultural and economic center of the known world</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">📖</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The Carolingian Renaissance created Europe's educational infrastructure</strong> — Charlemagne ordered monasteries and cathedrals to open schools; this was not mass literacy, but it built the institutions through which knowledge survived and eventually spread</li>
+              <li><strong>He forced Christianity on conquered peoples</strong> — the Saxons were converted under pain of death; this was religiously brutal but permanently reshaped Northern European identity, making Christianity the defining feature of European civilization</li>
+              <li><strong>He promoted the idea of a unified Christian Europe (Christendom)</strong> — this concept of a shared Christian identity transcending tribal differences was a new social idea that shaped how medieval Europeans understood themselves for centuries</li>
+              <li><strong>His legacy lived in the map of modern Europe</strong> — the Treaty of Verdun's three-way division of his empire roughly prefigured modern France, Germany, and the Low Countries; Charlemagne is sometimes called "the Father of Europe"</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- III. Economic Systems -->
+    <div class="topic" id="t-economics">
+      <div class="topic-header" onclick="toggleTopic('t-economics')">
+        <span class="topic-num">III</span>
+        <span class="topic-name">Economic Systems of Europe (Feudalism & Manorialism)</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Feudalism emerges — ~850–950 CE</span>
+            <span class="event-pill">Three-field system spreads — ~800 CE</span>
+            <span class="event-pill">Rise of guilds — ~11th–12th century</span>
+            <span class="event-pill">Commercial Revolution — ~1000–1300 CE</span>
+            <span class="event-pill">Towns grow rapidly — 1000–1150 CE</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">~850–950 CE</span><span class="event-desc-text"><strong>Feudalism emerges:</strong> After Viking, Magyar, and Muslim invasions destroyed the Carolingian Empire, kings could no longer protect their people. People turned to local lords who had their own armies. Any leader who could fight invaders gained followers. This desperate arrangement — land for military protection — became the feudal system. It was not designed; it evolved from the need to survive.</span></div>
+            <div class="event-desc"><span class="event-desc-date">~800 CE</span><span class="event-desc-text"><strong>Three-field system:</strong> Villages began organizing land into three fields instead of two — two planted, one left fallow (resting). This meant farmers could grow crops on two-thirds of their land each year instead of half. Food production increased, people ate better, children survived, and Europe's population grew dramatically. New technology also helped: horse collars replaced oxen (horses were three times faster), and water mills and windmills harnessed natural power.</span></div>
+            <div class="event-desc"><span class="event-desc-date">~11th–12th c.</span><span class="event-desc-text"><strong>Rise of guilds:</strong> As towns grew, merchants and skilled workers organized into guilds. Merchant guilds gave a single guild the sole right to trade in a town — outside merchants had to pay a fee. Craft guilds covered shoemakers, weavers, bakers, and others; they set rules for wages, hours, and working conditions. Training went: apprentice (2–7 years living with a master) → journeyman (paid worker) → master (own shop, had to create a "masterpiece").</span></div>
+            <div class="event-desc"><span class="event-desc-date">~1000–1300 CE</span><span class="event-desc-text"><strong>Commercial Revolution:</strong> Trade expanded dramatically as more goods became available and new business methods emerged. Trade routes spread across Europe to Constantinople, to Muslim lands, and to Asia. Banking grew — bills of exchange established rates between different currencies; letters of credit eliminated the need to carry large amounts of cash. The Church's ban on usury (lending at interest) meant moneylending became associated with Jewish communities, as they were not bound by that rule.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1000–1150 CE</span><span class="event-desc-text"><strong>Population and towns grow:</strong> Europe's population rose from around 30 million to about 42 million. Towns sprang up at ports, crossroads, on hilltops, along rivers. A typical medieval town had only 1,500–2,500 people; Paris, Europe's largest city, had around 60,000 by 1200. Serfs who escaped to a town and lived there for a year and a day became legally free — "Town air makes you free" — and townspeople (burghers) gained rights including self-government and freedom from manor taxes.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">🏰</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>Feudalism was simultaneously a political and economic system</strong> — land granted in exchange for military service created a pyramid of loyalty from king to peasant; a lord's political power was measured directly by the land and knights he controlled</li>
+              <li><strong>Lords functioned as local governments</strong> — they held judicial authority over serfs on their manors; they were landlord, judge, and military commander all at once, which meant royal authority was effectively limited outside of a king's own lands</li>
+              <li><strong>Burghers (town merchants) challenged the feudal political order</strong> — as trade grew, townspeople demanded freedom from manor taxes and the right to self-government; some won these rights through negotiation, others through violence against their feudal lords</li>
+              <li><strong>The Commercial Revolution shifted power toward kings and away from nobles</strong> — merchants paid taxes directly to the crown; kings used this new revenue to build professional armies that didn't depend on noble knights, slowly ending feudalism's political hold</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">🌿</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>The manor was a self-sufficient economic unit with almost no money</strong> — serfs produced everything needed for daily life on the lord's estate; the only outside purchases were salt, iron, and millstones; trade barely existed in early medieval Europe</li>
+              <li><strong>New farming technology started the transformation</strong> — horse collars replaced oxen (horses plowed three times faster), water mills and windmills harnessed natural power, and the three-field system grew crops on two-thirds of land instead of half; food production increased, population grew, and surplus people moved to towns</li>
+              <li><strong>Guilds controlled the new urban economy</strong> — merchant guilds gave a single guild the sole right to trade in a town; craft guilds set rules for wages, hours, and quality; the apprentice→journeyman→master system created the first formal professional training structure in European history</li>
+              <li><strong>The Commercial Revolution introduced modern financial tools</strong> — bills of exchange, letters of credit, and banking eliminated the need to carry cash; trade routes spread from Europe to Constantinople to Muslim lands to Asia; a money economy replaced barter across Europe</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">⛓️</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>Feudal society was rigidly stratified into three "orders"</strong> — those who pray (clergy), those who fight (nobility), those who work (peasants/serfs); the Church taught this hierarchy was divinely ordained, making it nearly impossible to challenge or change</li>
+              <li><strong>Serfdom bound people to the land by law</strong> — villeins (the most common type of serf) rented homes, spent time working the lord's land, and could not move without the lord's consent; average life expectancy was about 35 years and most people never traveled more than 25 miles from home</li>
+              <li><strong>Towns created a new social class that didn't fit the old order</strong> — merchants and craftspeople were neither nobles nor peasants; they became burghers, demanding and winning new freedoms; a serf who lived in a town for a year and a day became legally free — "Town air makes you free"</li>
+              <li><strong>The revival of learning transformed European intellectual life</strong> — contact with Muslims and Byzantines through the Crusades brought Greek philosophy back to Europe; universities grew from groups of scholars and students; Thomas Aquinas combined Greek reason with Christian faith; writers began using vernacular languages (Italian, English, French) instead of Latin, making literature accessible to ordinary people</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- IV. Knights -->
+    <div class="topic" id="t-knights">
+      <div class="topic-header" onclick="toggleTopic('t-knights')">
+        <span class="topic-num">IV</span>
+        <span class="topic-name">Knights</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Charles Martel organizes cavalry — 700s CE</span>
+            <span class="event-pill">Saddle & stirrups adopted — ~700s CE</span>
+            <span class="event-pill">Code of Chivalry codified — ~1100s CE</span>
+            <span class="event-pill">First Crusade — 1095–1099</span>
+            <span class="event-pill">Knights Templar founded — 1119</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">700s CE</span><span class="event-desc-text"><strong>Charles Martel organizes cavalry:</strong> Charlemagne's grandfather Charles Martel observed that Muslim cavalry often turned the tide of battles. He organized Frankish troops of armored horsemen — knights — as a direct response. Two Asian technologies made this possible: the saddle (keeping a warrior firmly on a moving horse) and stirrups (letting him use heavier weapons without toppling off). Without stirrups, charging warriors fell off their own horses.</span></div>
+            <div class="event-desc"><span class="event-desc-date">~1100s CE</span><span class="event-desc-text"><strong>Code of Chivalry:</strong> By the 1100s a complex code of ideals demanded that a knight fight bravely in defense of three masters: his earthly feudal lord, his heavenly Lord, and his chosen lady. The chivalrous knight was expected to be loyal, brave, and courteous, and to protect the weak and poor. In reality, most knights failed to meet these standards — they often treated the lower classes brutally. The code was an ideal, not a description of reality.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1095–1099</span><span class="event-desc-text"><strong>First Crusade:</strong> Pope Urban II called for a holy war to retake Jerusalem, partly because kings and the Church wanted to get rid of quarrelsome knights who threatened peace at home. Knights who had no land (younger sons couldn't inherit) saw the Crusade as a chance for land and adventure. The First Crusade ultimately captured Jerusalem in 1099, and the knights established four feudal Crusader states.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1119</span><span class="event-desc-text"><strong>Knights Templar founded:</strong> A group of knights took monastic vows and dedicated themselves to protecting Christian pilgrims in the Holy Land. They grew into an international military-financial organization. Their most important innovation: pilgrims could deposit money in one location and withdraw it in Jerusalem — creating the first letters of credit. This made the Templars the first international bank and connected the military and financial worlds permanently.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">🛡️</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>A lord's political power was measured in knights</strong> — the more mounted warriors a lord could field, the more powerful he was; knights were the military backbone that made feudal political power real and enforceable</li>
+              <li><strong>The oath of fealty defined all political relationships</strong> — a knight's sworn loyalty to his lord was the fundamental political bond of the Middle Ages; loyalty was personal, not institutional — you served a man, not a state</li>
+              <li><strong>Military orders became independent political powers</strong> — the Knights Templar and Hospitallers accumulated land and wealth across Europe; they answered to no single lord, making them a new kind of political actor that didn't fit the feudal system</li>
+              <li><strong>The Crusades were partly a political tool to redirect knightly violence</strong> — kings and the Church used them to send quarrelsome knights fighting each other at home to fight Muslims in the Holy Land instead; it temporarily stabilized European politics</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">⚙️</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>Knighthood required enormous wealth to enter</strong> — a warhorse, full armor, weapons, and 14 years of training meant only those with significant land income could participate; this is why land (fiefs) was the currency exchanged for military service</li>
+              <li><strong>Land was the foundation of the entire knight economy</strong> — lords gave fiefs to knights; knights used the income from those fiefs to fund their equipment and training; the economy had almost no money, just land changing hands in exchange for service</li>
+              <li><strong>The Knights Templar invented international banking</strong> — pilgrims could deposit money in Europe and withdraw it in Jerusalem; this letter of credit system was the first time money moved across borders without physically moving, and it laid foundations for modern finance</li>
+              <li><strong>The Crusades opened trade routes that fed the Commercial Revolution</strong> — crusading knights disrupted Muslim control of eastern trade routes; Italian merchant cities (Venice, Genoa, Pisa) exploited these openings to build the trade networks that drove medieval economic growth</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">🐴</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The Code of Chivalry created an entire aristocratic culture</strong> — knights were expected to serve lord, God, and a chosen lady; to be loyal, brave, and courteous; to protect the weak; in practice many failed these ideals, but the code shaped literature, art, and aristocratic behavior for centuries</li>
+              <li><strong>Knighthood gave younger sons of nobles a path forward</strong> — primogeniture (eldest son inherits everything) left younger sons with nothing; becoming a knight through military service was the main way to gain land and status; without it, younger sons would have been permanently excluded from power</li>
+              <li><strong>Training began in childhood and shaped identity completely</strong> — a boy became a page at 7, a squire at 14, and a knight at 21; 14 years of living in lords' castles, learning combat and courtesy, meant knighthood was a total social identity, not just a job</li>
+              <li><strong>Tournaments and literature glorified but also sanitized knightly life</strong> — troubadours composed romantic songs about knights and ladies; epic poems like the Song of Roland celebrated courage and faith; this literary tradition made knighthood seem more noble than it was and shaped European ideas about romance and heroism for centuries</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- V. The Church -->
+    <div class="topic" id="t-church">
+      <div class="topic-header" onclick="toggleTopic('t-church')">
+        <span class="topic-num">V</span>
+        <span class="topic-name">The Church</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">Cluny monastery founded — 910 CE</span>
+            <span class="event-pill">Investiture Controversy — 1076–1122</span>
+            <span class="event-pill">First Crusade launched — 1095</span>
+            <span class="event-pill">Fourth Lateran Council — 1215</span>
+            <span class="event-pill">Avignon Papacy — 1309–1377</span>
+            <span class="event-pill">Great Schism — 1378–1417</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">910 CE</span><span class="event-desc-text"><strong>Cluny monastery founded:</strong> The monastery at Cluny in France was especially influential in sparking a spiritual revival in the 900s. Reformers there wanted to return to basic Christian principles and established new religious orders. Influenced by this new devotion, popes began to reform the Church — restoring and expanding its power and authority. A new "Age of Faith" was born.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1076–1122</span><span class="event-desc-text"><strong>Investiture Controversy:</strong> The Church resented that kings appointed church officials (lay investiture). In 1075, Pope Gregory VII banned the practice. German Emperor Henry IV immediately called a meeting of the bishops he had appointed to order Gregory to step down. Gregory excommunicated Henry. German princes sided with the pope. To save his throne, Henry crossed the snowy Alps in January 1077 and stood barefoot in the snow for three days begging forgiveness — the pope made the proudest ruler in Europe grovel publicly.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1095</span><span class="event-desc-text"><strong>First Crusade launched:</strong> Pope Urban II called for a "holy war" to reclaim the Holy Land from Muslim control. Crusades had multiple goals: religious (reclaim Palestine, reunite Eastern and Western Christianity), political (get rid of quarrelsome knights), social (land for younger sons), and economic (control trade routes to Asia). The First Crusade captured Jerusalem in 1099 — the only successful crusade.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1309–1377</span><span class="event-desc-text"><strong>Avignon Papacy:</strong> King Philip IV of France had Pope Boniface VIII imprisoned in 1303 (the pope died shortly after). In 1305, Philip persuaded the College of Cardinals to choose a French pope. The papacy moved to Avignon, France for 69 years. This severely damaged the Church's credibility as an independent universal authority — it looked like the French king controlled the pope.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1378–1417</span><span class="event-desc-text"><strong>Great Schism:</strong> When reformers tried to move the papacy back to Rome, the cardinals elected an Italian pope but regretted it and elected a French pope in Avignon too. Now there were two popes, each declaring the other false. A council tried to fix it by electing a third pope. By 1417, the Council of Constance forced all three to resign and chose Martin V — ending the schism but leaving the papacy greatly weakened. John Wycliffe and Jan Hus also challenged Church authority from within; Hus was burned at the stake in 1415.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">⛪</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>The Church had more political power than any king</strong> — it could excommunicate rulers (removing their divine right to rule and freeing their subjects from loyalty), and place entire kingdoms under interdict (suspending all sacraments); these were weapons no army could match</li>
+              <li><strong>The Investiture Controversy showed the limits of royal power</strong> — when Henry IV refused to give up the right to appoint bishops, Pope Gregory VII excommunicated him; German princes sided with the pope; Henry stood barefoot in the snow for three days begging forgiveness — the most powerful ruler in Europe humiliated by the Church</li>
+              <li><strong>The Avignon Papacy and Great Schism permanently weakened papal authority</strong> — 69 years of French-controlled popes followed by two then three competing popes destroyed the Church's image as an independent, universal spiritual authority; kings became more powerful as the papacy became more vulnerable</li>
+              <li><strong>The Crusades were a political tool as much as a religious one</strong> — popes used them to direct the violence of quarrelsome knights outward, reunite Eastern and Western Christianity, and expand papal influence; the effects were mixed — trade grew but bitterness between Christians and Muslims lasted for centuries</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">💒</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>The Church was the largest economic institution in medieval Europe</strong> — it collected tithes (one tenth of every Christian's income), controlled vast landholdings, and ran most hospitals, schools, and charitable services; it was simultaneously a spiritual organization and a major economic power</li>
+              <li><strong>Simony turned Church offices into economic transactions</strong> — bishops selling positions meant Church power went to the highest bidder, not the most devout; this corrupt practice angered reformers and contributed to calls for Church reform that eventually weakened its authority</li>
+              <li><strong>Monasteries were economic powerhouses</strong> — they ran farms, maintained libraries, brewed ale, cared for the sick, and preserved agricultural knowledge; without monasteries, much of Europe's productive capacity during the early Middle Ages would have been lost</li>
+              <li><strong>The ban on usury shaped European finance</strong> — the Church forbade Christians from lending money at interest; this pushed Jewish communities into banking (they were not bound by the rule), shaped the development of European credit markets, and created long-lasting social tensions around money and religion</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">📿</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The Church organized every aspect of medieval life</strong> — birth (baptism), marriage, death, education, healthcare, and charity were all Church functions; the village church was the social center of every community; religious holidays structured the entire calendar</li>
+              <li><strong>The Church legitimized and reinforced social hierarchy</strong> — it taught that the three-orders system (those who pray, fight, and work) was divinely ordained; this made the feudal social structure feel natural and unchallengeable to most people</li>
+              <li><strong>Monasteries preserved civilization during the darkest period</strong> — monks copied books, maintained libraries, and kept classical learning alive when literacy had nearly disappeared in the rest of Europe; without monasteries, most ancient Greek and Roman knowledge would have been lost</li>
+              <li><strong>New religious orders brought the Church to ordinary people</strong> — Dominicans (founded by Dominic, emphasis on scholarship) and Franciscans (founded by Francis of Assisi, treating all creatures as spiritual equals) preached directly to the urban poor; women joined orders like the Poor Clares, finding one of the only paths to education and independence available to them</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- VI. Hundred Years War -->
+    <div class="topic" id="t-hundredyears">
+      <div class="topic-header" onclick="toggleTopic('t-hundredyears')">
+        <span class="topic-num">VI</span>
+        <span class="topic-name">The Hundred Years War and Technology</span>
+        <span class="topic-chevron">▶</span>
+      </div>
+      <div class="topic-body"><div class="topic-inner">
+        <div class="events-bar">
+          <div class="events-label">⚑ Key Events & Dates</div>
+          <div class="events-list">
+            <span class="event-pill">War begins — 1337</span>
+            <span class="event-pill">Battle of Crécy (longbow) — 1346</span>
+            <span class="event-pill">Battle of Poitiers — 1356</span>
+            <span class="event-pill">Battle of Agincourt — 1415</span>
+            <span class="event-pill">Joan of Arc — 1429–1431</span>
+            <span class="event-pill">War ends — 1453</span>
+          </div>
+          <div class="events-descriptions">
+            <div class="event-desc"><span class="event-desc-date">1337</span><span class="event-desc-text"><strong>War begins:</strong> The origins go back to 1066 when William of Normandy (a French duke) conquered England, tying the nobility of both countries together. Tensions built for centuries over who had the right to rule either region. Fighting began when the king of France tried to take territory claimed by England in southern France. English King Edward III responded by claiming to be the rightful king of France. It was not one war but a series of conflicts spanning 116 years.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1346</span><span class="event-desc-text"><strong>Battle of Crécy — the longbow:</strong> The English army, including longbowmen, was outnumbered three to one by the French. French knights believed themselves invincible and attacked. English longbowmen fired thousands of arrows — the average archer could fire 12–15 arrows per minute and hit a man at 200 yards. The knights were unhorsed and then slaughtered by English foot soldiers. Over a third of the French force lay dead. The longbow was as tall as a man, cheap, and deadly enough to penetrate armor — it has been called "the machine gun of the Middle Ages."</span></div>
+            <div class="event-desc"><span class="event-desc-date">1356</span><span class="event-desc-text"><strong>Battle of Poitiers:</strong> The English Black Prince used the same longbow tactics to defeat the French again — this time capturing French King John II himself. An extraordinary humiliation. France paid a massive ransom of three million gold crowns, essentially bankrupting the kingdom. The resulting tax burden triggered peasant revolts (the Jacquerie of 1358) and urban uprisings across France — military defeat cascaded directly into social crisis.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1415</span><span class="event-desc-text"><strong>Battle of Agincourt:</strong> Henry V's outnumbered English army destroyed a much larger French force — again through longbowmen. In 1420, the French and English signed a treaty stating Henry V would inherit the French crown. It seemed England had won. Then a teenage French peasant girl changed everything.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1429–1431</span><span class="event-desc-text"><strong>Joan of Arc:</strong> Joan began having visions at age 13, hearing voices of saints urging her to drive the English from France. She convinced the French king (the Dauphin) to give her an army. On May 7, 1429, she led the French to victory at Orléans after a hard-fought battle where the French had retreated in despair — she charged back and the whole army followed. She then had Charles VII crowned king at Reims. In 1430, the Burgundians captured her and sold her to the English. King Charles did nothing to save her. She was tried as a heretic and burned at the stake on May 30, 1431.</span></div>
+            <div class="event-desc"><span class="event-desc-date">1453</span><span class="event-desc-text"><strong>War ends:</strong> Between 1421 and 1453 the French rallied and drove the English completely out of France — England kept only the port of Calais. The war ended the same year Constantinople fell to the Ottomans, making 1453 one of the most consequential years of the medieval period, closing two eras simultaneously. Some historians consider the end of the Hundred Years War as the end of the Middle Ages itself.</span></div>
+          </div>
+        </div>
+        <div class="pillars">
+          <div class="pillar political">
+            <span class="pillar-icon">👸</span>
+            <div class="pillar-title">Political Effects</div>
+            <ul>
+              <li><strong>The war created national identity in both France and England</strong> — what began as a feudal dispute between two kings over land and inheritance transformed into something new: people began to think of their king as a national leader fighting for the glory of the country, not just a feudal lord; this is one of the origins of modern nationalism</li>
+              <li><strong>French royal power grew stronger from the conflict</strong> — the war weakened the French nobility severely while strengthening centralized monarchy under Charles VII; the king emerged from the war with more authority over his kingdom than any French ruler before him</li>
+              <li><strong>Joan of Arc proved that ordinary people could shape political events</strong> — a peasant girl convinced the French king to give her an army, lifted the siege of Orléans, and had Charles VII crowned; her execution by the English for heresy made her a martyr and a permanent symbol of French national identity</li>
+              <li><strong>England turned inward after defeat</strong> — losing France ended English ambitions for a continental empire; the War of the Roses (two noble houses fighting for the English throne) followed immediately, showing that defeat abroad created political instability at home</li>
+            </ul>
+          </div>
+          <div class="pillar economic">
+            <span class="pillar-icon">🏹</span>
+            <div class="pillar-title">Economic Effects</div>
+            <ul>
+              <li><strong>116 years of warfare devastated the French economy</strong> — pillaging armies destroyed farmland and disrupted food supply; combined with the Black Death (which struck mid-war), France lost enormous portions of its population and economic output</li>
+              <li><strong>England financed war through taxation and Italian banking</strong> — heavy wool export taxes and borrowing from Italian bankers funded English campaigns; this is one of the earliest examples of war finance that resembles modern government borrowing</li>
+              <li><strong>The longbow changed the cost structure of warfare</strong> — a longbow was cheap and a commoner archer could be trained in months; a knight required years of training and enormous wealth in horses and armor; armies could now fight effectively without expensive feudal cavalry, reducing the economic power of nobles</li>
+              <li><strong>Post-war reconstruction required stronger central economic control</strong> — France needed massive rebuilding after the war; this drove centralized taxation and stronger royal economic management, accelerating the transition from feudal to national economies</li>
+            </ul>
+          </div>
+          <div class="pillar social">
+            <span class="pillar-icon">💥</span>
+            <div class="pillar-title">Social Effects</div>
+            <ul>
+              <li><strong>The longbow ended the Age of Chivalry on the battlefield</strong> — at Crécy (1346), Poitiers (1356), and Agincourt (1415), English commoner archers armed with cheap longbows killed French nobles at range; the most honored knights in chivalry lay dead, killed by men they would have considered social inferiors; the Age of Chivalry died on these battlefields</li>
+              <li><strong>Gunpowder made the physical structure of feudalism obsolete</strong> — cannons could breach stone castle walls that had protected lords for centuries; when castles stopped being defensible, the social and political power that depended on them collapsed with them</li>
+              <li><strong>Professional paid armies replaced feudal knights</strong> — the rise of soldiers paid wages by kings (rather than given land by lords) meant the military no longer needed to operate through feudal obligation; this shift undermined the social contract that had organized medieval society for 500 years</li>
+              <li><strong>Joan of Arc was a social earthquake</strong> — a peasant girl commanding armies shattered the idea that military leadership was reserved for noble men; her execution (burned as a heretic in 1431) and later canonization as a saint in 1920 made her story one of the most powerful in European history</li>
+            </ul>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</div><!-- /medieval -->
+
+<footer>
+  <span class="ornament">⸻ ✦ ⸻</span>
+  <p>World History 1 · Study Guide · Rome · Byzantine Empire · Middle Ages</p>
+</footer>
+
+<script>
+  function togglePeriod(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+  function toggleTopic(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+</script>
+</body>
+</html>
